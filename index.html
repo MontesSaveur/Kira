@@ -1,0 +1,851 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MontesSaveur - Vente de Paniers Repas</title>
+    <style>
+        /* Style général */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(to bottom, #e0f7fa, #b2dfdb);
+            color: #333;
+        }
+
+        /* Menu de navigation */
+        nav {
+            background: linear-gradient(to right, #4CAF50, #2196F3);
+            padding: 20px;
+            text-align: center;
+        }
+
+        nav a {
+            color: white;
+            margin: 0 15px;
+            font-size: 1.2em;
+            font-weight: bold;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: #fff3e6;
+        }
+
+        /* Bannière */
+        header {
+            background: linear-gradient(to right, #4CAF50, #2196F3);
+            color: white;
+            padding: 40px;
+            text-align: center;
+        }
+
+        header img {
+            max-width: 250px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+
+        header h1 {
+            font-size: 3em;
+            margin: 0;
+            color: #fff3e6;
+            font-weight: bold;
+        }
+
+        header p {
+            font-size: 1.2em;
+            color: #e0f7fa;
+            font-weight: bold;
+        }
+
+        /* Section principale */
+        .container {
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 20px;
+            background: linear-gradient(to bottom, #e0f7fa, #b2dfdb);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+            border-radius: 15px;
+        }
+
+        /* Titres de sections */
+        h2 {
+            font-size: 2.5em;
+            text-align: center;
+            margin-bottom: 20px;
+            background: linear-gradient(to right, #4CAF50, #2196F3);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            color: transparent;
+            font-weight: bold;
+        }
+
+        /* Section Mission */
+        #mission {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        #mission .text {
+            flex: 1;
+            margin-right: 20px;
+        }
+
+        #mission img {
+            max-width: 400px;
+            height: auto;
+            margin-left: 20px;
+        }
+
+        
+   
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f4f9fc;
+            margin: 0;
+            padding: 0;
+            color: #333;
+        }
+
+        .menu-container {
+            max-width: 1200px;
+            margin: 50px auto;
+            padding: 20px;
+            border: 2px solid #4CAF50;
+            background-color: white;
+            border-radius: 12px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            color: #2E8B57;
+            margin-bottom: 40px;
+        }
+
+        .meal-cards {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .meal-card {
+            background-color: #fff;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+            width: 300px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+        }
+
+        .meal-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .meal-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .details {
+            padding: 20px;
+            text-align: center;
+        }
+
+        .details h3 {
+            font-size: 1.8rem;
+            color: #FF6347;
+            margin-bottom: 10px;
+        }
+
+        .price {
+            font-size: 1.4rem;
+            color: #2E8B57;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+
+        .stock-container {
+    display: flex;
+    justify-content: space-between; /* Espacement entre le stock et le bouton */
+    align-items: center; /* Alignement vertical centré */
+    margin-top: 10px; /* Espacement au-dessus du stock */
+}
+
+.stock {
+    flex: 1; /* Permet au texte du stock de prendre de l'espace */
+    text-align: left; /* Alignement à gauche */
+}
+
+.btn-reserve {
+    padding: 15px 30px;
+    background: linear-gradient(45deg, #4CAF50, #2E8B57);
+    color: white;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.3s ease; /* Ajout d'une animation de transformation */
+    font-size: 1rem;
+    font-weight: 600;
+    margin-left: 20px; /* Ajoute de l'espace entre le texte du stock et le bouton */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.btn-reserve:hover {
+    transform: scale(1.05); /* Agrandissement léger au survol */
+    background: linear-gradient(45deg, #3E8E41, #2A6F52); /* Changement de couleur au survol */
+}
+
+.btn-reserve:disabled {
+    background: #ccc; /* Couleur du bouton désactivé */
+    cursor: not-allowed; /* Curseur non autorisé */
+}
+
+
+        #modal {
+            display: none;
+            justify-content: center;
+            align-items: center;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            z-index: 1000;
+        }
+
+        #modal-content {
+            background-color: white;
+            padding: 40px;
+            border-radius: 12px;
+            text-align: center;
+            width: 400px;
+            position: relative;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        #modal h2 {
+            color: #2E8B57;
+            margin-bottom: 20px;
+        }
+
+        #modal button {
+            padding: 12px 20px;
+            background-color: #FF5722;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            margin-top: 20px;
+            transition: background 0.3s ease;
+        }
+
+        #modal button:hover {
+            background-color: #e64a19;
+        }
+
+        .close-modal {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            font-size: 20px;
+            cursor: pointer;
+            color: #555;
+        }
+
+        .close-modal:hover {
+            color: #e64a19;
+        }
+
+        @media (max-width: 768px) {
+            .meal-cards {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .meal-card {
+                width: 90%;
+            }
+        }
+
+        /* Section Dons */
+        #dons {
+            margin: 20px auto;
+            max-width: 1200px;
+            padding: 20px;
+            border: 2px solid #4CAF50;
+            border-radius: 15px;
+            background: #ffffff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Section Avis */
+        #avis {
+            margin: 20px auto;
+            max-width: 1200px;
+            padding: 20px;
+            background: #ffffff;
+            border: 2px solid #4CAF50;
+            border-radius: 15px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Fenêtre modale */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.4);
+            padding-top: 60px;
+        }
+
+        .modal-content {
+            background-color: #fefefe;
+            margin: 5% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%;
+            max-width: 600px;
+            border-radius: 15px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        /* Pied de page */
+        footer {
+            text-align: center;
+            padding: 25px;
+            background: linear-gradient(to right, #4CAF50, #2196F3);
+            color: white;
+            margin-top: 20px;
+            font-weight: bold;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2.5em;
+            }
+            header p {
+                font-size: 1em;
+            }
+            .meal-card {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            .meal-card img {
+                max-width: 100%;
+                margin-bottom: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+
+<!-- Menu de navigation -->
+<nav>
+    <a href="#mission">Mission</a>
+    <a href="#panier repas">Panier Repas</a>
+    <a href="#dons">Don</a>
+    <a href="#avis">Avis</a>
+</nav>
+
+    <!-- Bannière -->
+    <header>
+        <img src="https://cdn.discordapp.com/attachments/1313482268299497613/1313877412358000742/2024120415260097.png?ex=6751bb31&is=675069b1&hm=8abd9e3aedf70fd582f5d45cf01337dc97c80a25c493f83f234d0e5ce8347850&" alt="Logo MontesSaveur">
+        <h1>MontesSaveur</h1>
+        <p>Votre solution contre le gaspillage alimentaire</p>
+    </header>
+
+    <div class="container">
+        <!-- Section Mission -->
+<section id="mission" style="font-family: 'Arial', sans-serif; font-weight: bold; background-color: #fffbf0; padding: 30px; border-radius: 10px; border: 2px solid #ffcc00;">
+    <div class="text" style="text-align: center;">
+        <h2 style="font-weight: bold; color: #e64a19;">Notre Mission ⛩️</h2>
+        <p style="font-weight: bold; color: #d32f2f;">Notre objectif est de <span style="color: #f57c00;">réduire le gaspillage alimentaire</span> tout en soutenant notre établissement scolaire. Chaque repas que vous achetez est essentiel et contribue directement à nos projets éducatifs. 🎓</p>
+        <p style="font-weight: bold; color: #388e3c;">Nous nous engageons à offrir des repas <span style="color: #1976d2;">bio et de qualité</span>, préparés avec soin à partir de surplus alimentaires, pour garantir que chaque bouchée soit aussi savoureuse qu'écoresponsable. 🍽️</p>
+        <p style="font-weight: bold; color: #1976d2;">Pour en savoir plus sur notre établissement et notre engagement, visitez <a href="https://www.montessorimioscampus.com/" target="_blank" style="color: #ff9800; text-decoration: underline;">notre site officiel 🌐</a>.</p>
+    </div>
+</section>
+    
+    <!-- Menus -->
+<section id="panier-repas">
+    <div class="menu-container">
+        <h2>Nos Paniers Repas 🍽️</h2>
+        
+       <!-- Information Section -->
+<div class="info-section">
+    <p style="font-weight: bold;">
+        Les repas sont disponibles uniquement sur place. Vous pouvez les récupérer chaque vendredi entre 
+        17h et 17h30. Pour le moment, nous acceptons uniquement les paiements en espèces. 
+        Cependant, nous travaillons à intégrer les paiements par carte bancaire, qui seront disponibles dans un avenir proche. 
+        Merci pour votre compréhension et votre soutien !
+    </p>
+</div>
+
+
+        <!-- Meal Cards -->
+        <div class="meal-cards" id="mealCards">
+            <div class="meal-card" data-stock="5">
+                <div class="details">
+                    <h3>Entrée</h3>
+                    <p class="price">2,50 €</p>
+                    <div class="stock-container">
+                        <p class="stock">Stock : <span class="stock-count">5</span></p>
+                        <button class="btn-reserve" onclick="reserve(this, 'Entrée', 2.50)">Réserver</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="meal-card" data-stock="0">
+                <div class="details">
+                    <h3>Plat</h3>
+                    <p class="price">6,00 €</p>
+                    <div class="stock-container">
+                        <p class="stock">Stock : <span class="stock-count">0</span></p>
+                        <button class="btn-reserve" disabled>Réserver</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="meal-card" data-stock="3">
+                <div class="details">
+                    <h3>Dessert</h3>
+                    <p class="price">4,00 €</p>
+                    <div class="stock-container">
+                        <p class="stock">Stock : <span class="stock-count">3</span></p>
+                        <button class="btn-reserve" onclick="reserve(this, 'Dessert', 4)">Réserver</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+        <!-- Panier -->
+<h3>Votre Panier 🛒</h3>
+<div id="basket" style="display:none; border: 1px solid #ccc; padding: 10px; border-radius: 5px;">
+    <ul id="basketItems" style="list-style-type: none; padding: 0;"></ul>
+    <p id="totalPrice" style="font-weight: bold;">Total : 0,00 €</p>
+    <button onclick="clearBasket()" style="background-color: #ff4d4d; color: white; border: none; padding: 10px; border-radius: 5px; cursor: pointer;">Annuler ma commande</button>
+</div>
+</section>
+
+<style>
+    .cancel-button {
+        background-color: #ffcc00; /* Couleur de fond */
+        color: #fff; /* Couleur du texte */
+        border: none; /* Pas de bordure */
+        padding: 5px 10px; /* Espacement interne */
+        border-radius: 5px; /* Coins arrondis */
+        cursor: pointer; /* Curseur pointeur */
+        transition: background-color 0.3s ease; /* Transition pour le changement de couleur */
+        font-size: 0.9em; /* Taille de police */
+    }
+
+    .cancel-button:hover {
+        background-color: #e6b800; /* Couleur de fond au survol */
+    }
+</style>
+
+<script>
+let basket = [];
+let orderId = null;
+
+function generateOrderId() {
+    // Génère un numéro de commande unique (exemple : ORD12345)
+    return "ORD" + Math.floor(10000 + Math.random() * 90000);
+}
+
+function reserve(button, itemName, price) {
+    const card = button.closest('.meal-card');
+    const stockCount = card.querySelector('.stock-count');
+    let stock = parseInt(stockCount.textContent);
+
+    if (stock > 0) {
+        // Générer un numéro de commande si ce n'est pas encore fait
+        if (!orderId) {
+            orderId = generateOrderId();
+            document.getElementById('orderId').textContent = orderId;
+        }
+
+        // Ajouter l'article au panier
+        basket.push({ name: itemName, price: price });
+        stock--;
+
+        // Mettre à jour l'affichage du stock
+        stockCount.textContent = stock;
+        if (stock === 0) {
+            button.disabled = true;
+        }
+
+        // Afficher le panier
+        showBasket();
+
+        // Envoyer un message au webhook
+        sendWebhook('réservé');
+        alert(`Vous avez réservé ${itemName}. Conservez votre numéro de commande : ${orderId}. Votre commande sera prête vendredi entre 17h et 17h30.`);
+    } else {
+        alert("Désolé, cet article est en rupture de stock.");
+    }
+}
+
+function showBasket() {
+    const basketContainer = document.getElementById('basket');
+    const basketItems = document.getElementById('basketItems');
+    basketItems.innerHTML = '';
+    let total = 0;
+
+    basket.forEach((item, index) => {
+        const li = document.createElement('li');
+        li.textContent = `${item.name} - ${item.price.toFixed(2)} €`;
+        const cancelButton = document.createElement('button');
+        cancelButton.textContent = "Annuler";
+        cancelButton.className = "cancel-button";
+        cancelButton.onclick = () => cancelOrder(index, item.name);
+        li.appendChild(cancelButton);
+        basketItems.appendChild(li);
+        total += item.price;
+    });
+
+    document.getElementById('totalPrice').textContent = `Total : ${total.toFixed(2)} €`;
+    basketContainer.style.display = 'block';
+}
+
+function cancelOrder(index, itemName) {
+    const item = basket[index];
+    basket.splice(index, 1);
+
+    // Mettre à jour le stock
+    const mealCards = document.querySelectorAll('.meal-card');
+    mealCards.forEach(card => {
+        const details = card.querySelector('.details h3').textContent;
+        if (details === item.name) {
+            const stockCount = card.querySelector('.stock-count');
+            let stock = parseInt(stockCount.textContent);
+            stock++;
+            stockCount.textContent = stock;
+            card.querySelector('.btn-reserve').disabled = false;
+        }
+    });
+
+    showBasket();
+    sendWebhook('annulé');
+    alert(`Votre commande de ${itemName} a été annulée.`);
+}
+
+function clearBasket() {
+    basket.forEach(item => {
+        const mealCards = document.querySelectorAll('.meal-card');
+        mealCards.forEach(card => {
+            const details = card.querySelector('.details h3').textContent;
+            if (details === item.name) {
+                const stockCount = card.querySelector('.stock-count');
+                let stock = parseInt(stockCount.textContent);
+                stock++;
+                stockCount.textContent = stock;
+                card.querySelector('.btn-reserve').disabled = false;
+            }
+        });
+    });
+
+    basket = [];
+    orderId = null;
+    document.getElementById('basketItems').innerHTML = '';
+    document.getElementById('totalPrice').textContent = `Total : 0,00 €`;
+    document.getElementById('orderId').textContent = "-";
+    document.getElementById('basket').style.display = 'none';
+    alert("Votre commande a été annulée.");
+}
+
+function sendWebhook(action) {
+    let basketDetails = "";
+    let total = 0;
+
+    basket.forEach(item => {
+        basketDetails += `${item.name} - ${item.price.toFixed(2)} €\n`;
+        total += item.price;
+    });
+
+    const webhookURL = "https://discord.com/api/webhooks/1313478883407822918/Th2utnik8oK4qVGZZycjeMrpLS-lDzIUeClRerH2ltgtQKJz8bzpHoaFRt8Zvifvcgij";
+    const data = {
+        embeds: [
+            {
+                title: action === 'réservé' ? "Nouvelle Réservation 🎋" : "Annulation de Réservation 🚫",
+                description: `Numéro de commande : ${orderId}\n\nArticles :\n${basketDetails}\nTotal : ${total.toFixed(2)} €`,
+                color: action === 'réservé' ? 3066993 : 15158332
+            }
+        ]
+    };
+
+    fetch(webhookURL, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data),
+    })
+    .then(response => console.log('Webhook envoyé:', response))
+    .catch(error => console.error('Erreur lors de l\'envoi du webhook:', error));
+}
+
+</script>
+
+       <!-- Section Dons -->
+<section id="dons" style="border: 2px solid #4CAF50; border-radius: 15px; padding: 20px; background-color: #f9f9f9; font-family: Arial, sans-serif; font-weight: bold;">
+    <h2 style="font-weight: bold;">Faire un Don 🫶</h2>
+    <p style="font-weight: bold;">Chaque don compte et contribue directement à notre mission de réduction du gaspillage alimentaire. En soutenant notre initiative, vous aidez à financer des repas sains et durables pour nos élèves.</p>
+    <p style="font-weight: bold;">Votre générosité nous permet de continuer à proposer des repas de qualité tout en sensibilisant les jeunes à l'importance de la durabilité. Ensemble, nous pouvons faire une réelle différence !</p>
+    <p style="font-weight: bold;">Merci de votre soutien indéfectible.</p>
+    <div id="donate-button-container" style="text-align: center;">
+        <div id="donate-button"></div>
+        <script src="https://www.paypalobjects.com/donate/sdk/donate-sdk.js" charset="UTF-8"></script>
+        <script>
+            PayPal.Donation.Button({
+                env: 'production',
+                hosted_button_id: 'NRLMAMGLPFM7S',
+                image: {
+                    src: 'https://www.paypalobjects.com/fr_FR/FR/i/btn/btn_donateCC_LG.gif',
+                    alt: 'Faites un don avec PayPal',
+                    title: 'PayPal - Une façon sûre et simple de donner en ligne !',
+                }
+            }).render('#donate-button');
+        </script>
+    </div>
+</section>   
+
+<section id="avis" style="background-color: #f9f9f9; padding: 0; width: 100%; height: 100vh; display: flex; justify-content: center; align-items: center;">
+    <div id="avis-container" style="width: 90%; max-width: 1200px; background-color: #fff; padding: 40px; border-radius: 10px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
+        <h2 style="text-align: center; color: #333; font-size: 2.5rem; margin-bottom: 40px;">Laissez un Avis 🔝</h2>
+        <form id="form-avis" style="width: 100%; display: flex; flex-direction: column; align-items: center;">
+            <div style="width: 100%; max-width: 800px; margin-bottom: 30px;">
+                <label for="note" style="font-weight: bold; font-size: 1.125rem;">Note:</label>
+                <div id="note" style="display: flex; gap: 15px; margin-top: 10px; justify-content: center;">
+                    <span class="etoile" style="cursor: pointer; font-size: 2rem; color: gray;">★</span>
+                    <span class="etoile" style="cursor: pointer; font-size: 2rem; color: gray;">★</span>
+                    <span class="etoile" style="cursor: pointer; font-size: 2rem; color: gray;">★</span>
+                    <span class="etoile" style="cursor: pointer; font-size: 2rem; color: gray;">★</span>
+                    <span class="etoile" style="cursor: pointer; font-size: 2rem; color: gray;">★</span>
+                </div>
+            </div>
+            <div style="width: 100%; max-width: 800px; margin-bottom: 30px; display: flex; flex-direction: column; align-items: center;">
+                <label for="avis-text" style="font-weight: bold; font-size: 1.125rem; text-align: center; width: 100%;">Votre Avis:</label>
+                <textarea id="avis-text" rows="6" style="width: 100%; padding: 15px; border: 1px solid #ccc; border-radius: 5px; resize: none; font-size: 1rem;" placeholder="Écrivez votre avis ici..."></textarea>
+            </div>
+            <div style="text-align: center; width: 100%; max-width: 800px;">
+                <button type="submit" style="background-color: #4CAF50; color: white; font-size: 1.125rem; border: none; padding: 15px 30px; border-radius: 5px; cursor: pointer;">Soumettre</button>
+            </div>
+        </form>
+    </div>
+</section>
+
+<!-- Media Queries pour les petits écrans -->
+<style>
+    @media (max-width: 768px) {
+        #avis-container {
+            padding: 20px; /* Réduit les espacements sur mobile */
+        }
+
+        h2 {
+            font-size: 2rem; /* Réduit la taille du titre sur mobile */
+            margin-bottom: 20px; /* Ajuste l'espacement sous le titre */
+        }
+
+        .etoile {
+            font-size: 1.5rem; /* Réduit la taille des étoiles */
+        }
+
+        textarea {
+            font-size: 0.875rem; /* Réduit la taille de la police dans le textarea */
+            padding: 12px; /* Réduit le padding pour plus d'espace */
+            width: 100%; /* S'assure que le textarea prend toute la largeur disponible */
+            text-align: left; /* Laisse le texte aligné à gauche */
+        }
+
+        button {
+            font-size: 1rem; /* Réduit la taille du texte du bouton */
+            padding: 12px 25px; /* Ajuste le padding du bouton */
+        }
+
+        #avis-container {
+            width: 95%; /* Assure que le container est bien adapté aux petits écrans */
+        }
+
+        #note {
+            gap: 10px; /* Réduit l'espacement entre les étoiles */
+        }
+
+        .form-avis {
+            align-items: center; /* Centre les éléments dans le formulaire */
+        }
+    }
+</style>
+
+
+<script>
+    const etoiles = document.querySelectorAll('.etoile');
+    let noteSelectionnee = 0;
+
+    // Gestion des étoiles
+    etoiles.forEach((etoile, index) => {
+        etoile.addEventListener('click', () => {
+            noteSelectionnee = index + 1;
+
+            // Met à jour la couleur des étoiles
+            etoiles.forEach((etoile, i) => {
+                etoile.style.color = i < noteSelectionnee ? 'gold' : 'gray';
+            });
+        });
+
+        etoile.addEventListener('mouseover', () => {
+            const noteTemp = index + 1;
+
+            etoiles.forEach((etoile, i) => {
+                etoile.style.color = i < noteTemp ? 'gold' : 'gray';
+            });
+        });
+
+        etoile.addEventListener('mouseout', () => {
+            etoiles.forEach((etoile, i) => {
+                etoile.style.color = i < noteSelectionnee ? 'gold' : 'gray';
+            });
+        });
+    });
+
+    // Envoi du formulaire
+    document.getElementById('form-avis').addEventListener('submit', (event) => {
+        event.preventDefault();
+        const avisText = document.getElementById('avis-text').value;
+
+        if (noteSelectionnee === 0) {
+            alert("Veuillez sélectionner une note.");
+            return;
+        }
+
+        if (!avisText.trim()) {
+            alert("Veuillez écrire un avis.");
+            return;
+        }
+
+        // Envoi de l'avis au webhook Discord via un embed
+        const webhookURL = "https://discord.com/api/webhooks/1313475661905657937/c4qk1mAiL8b9ZHDpJd7hh5ryM--2bnq4XyYs4fnkYNcZM6VI3p5txbAYYdrLnkfIy8lX";
+        const avisData = {
+            embeds: [
+                {
+                    title: "Nouvel Avis Reçu 🎉",
+                    description: avisText,
+                    color: 16776960, // Couleur jaune (valeur décimale pour 0xFFFF00)
+                    fields: [
+                        {
+                            name: "Note",
+                            value: `${noteSelectionnee}/5 ⭐`,
+                            inline: true
+                        }
+                    ],
+                    footer: {
+                        text: "Merci pour votre avis !",
+                        icon_url: "https://cdn-icons-png.flaticon.com/512/190/190411.png" // Exemple d'icône (peut être remplacé par une autre URL)
+                    },
+                    timestamp: new Date().toISOString()
+                }
+            ]
+        };
+
+        
+        fetch(webhookURL, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(avisData)
+        })
+        .then(response => {
+            if (response.ok) {
+                alert('Votre avis a été soumis avec succès !');
+                // Réinitialiser le formulaire
+                noteSelectionnee = 0;
+                etoiles.forEach((etoile) => {
+                    etoile.style.color = 'gray';
+                });
+                document.getElementById('avis-text').value = '';
+            } else {
+                alert('Une erreur est survenue. Veuillez réessayer plus tard.');
+            }
+        })
+        .catch(error => {
+            console.error('Erreur:', error);
+            alert('Une erreur est survenue. Veuillez réessayer plus tard.');
+        });
+    });
+</script>
+
+
+
+
+
+    <!-- Pied de page -->
+    <footer>
+        <p>&copy; Kira/MontesSaveur Tous droits réservés.</p>
+    </footer>
+
+    <script>
+        function changeImage() {
+            const url = document.getElementById("image-url").value;
+            const imgTags = document.querySelectorAll('.meal-card img');
+
+            // Changez l'image de chaque carte de menu
+            imgTags.forEach(img => {
+                if (url) {
+                    img.src = url;
+                }
+            });
+        }
+
+        function openModal() {
+            document.getElementById("reservation-modal").style.display = "block";
+        }
+
+        function closeModal() {
+            document.getElementById("reservation-modal").style.display = "none";
+        }
+    </script>
+</body>
+</html>
